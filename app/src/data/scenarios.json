@@ -1,0 +1,46 @@
+{
+    "scenarios": [
+      {
+        "id": "distress_signal",
+        "scenario": "Captain, we've picked up a distress signal from a derelict ship. Investigating would take us off our current route and delay the mission.",
+        "choices": [
+          "Investigate the distress signal",
+          "Ignore and maintain course"
+        ]
+      },
+      {
+        "id": "resource_allocation",
+        "scenario": "Food and water reserves are running low. Some crew members suggest rationing heavily, but morale could suffer greatly. Alternatively, we could try our luck harvesting ice from a nearby asteroid field.",
+        "choices": [
+          "Institute strict rationing immediately",
+          "Take a risky detour to harvest ice"
+        ]
+      },
+      {
+        "id": "mutiny_suspicion",
+        "scenario": "You overhear whispers among crew members suggesting dissatisfaction with the captain's command style. They haven't acted yet, but it could escalate.",
+        "choices": [
+          "Immediately inform the captain",
+          "Try to mediate quietly and resolve without involving the captain"
+        ]
+      },
+      {
+        "id": "engine_malfunction",
+        "scenario": "The ship's main propulsion unit is showing anomalies. You could order an emergency shutdown for inspection now, which would guarantee safety but delay the mission, or wait until you reach the next starbase.",
+        "choices": [
+          "Shut down engines immediately for safety check",
+          "Delay inspection until the next starbase"
+        ]
+      },
+      {
+        "id": "alien_encounter",
+        "scenario": "An unknown alien craft approaches without clear intentions. You must decide quickly: hail them, power up defensive systems, or attempt evasive maneuvers.",
+        "choices": [
+          "Open diplomatic communications",
+          "Ready defensive systems",
+          "Attempt to evade entirely"
+        ]
+      }
+    ]
+  }
+  

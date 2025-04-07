@@ -163,5 +163,3 @@ cython_debug/
 #.idea/
 
 .langgraph_api
-ollama_data/
-
