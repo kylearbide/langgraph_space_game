@@ -11,8 +11,11 @@ WORKDIR /app
 # Copy app files
 COPY ./app /app
 
+# Install dependencies
+RUN pip install -e .
+
 # Expose port 2024
 EXPOSE 2024
 
 # Run langgraph development server
-CMD ["langgraph", "dev", "--host", "0.0.0.0", "--port", "2024"]
+CMD ["langgraph", "dev", "--port", "2024"]

@@ -19,7 +19,7 @@ services:
   langgraph:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: langgraph.dockerfile
     ports:
       - "2024:2024"
 
