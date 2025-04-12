@@ -16,12 +16,5 @@ services:
   #             count: all
   #             capabilities: [gpu]
 
-  langgraph:
-    build:
-      context: .
-      dockerfile: langgraph.dockerfile
-    ports:
-      - "2024:2024"
-
 
     
