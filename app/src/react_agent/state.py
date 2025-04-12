@@ -48,6 +48,7 @@ class State(InputState):
     is_last_step: IsLastStep = field(default=False)
     is_incoming_message_malicious: bool = field(default=False)
     is_start_of_game: bool = field(default=True)
+    user_discovered_weapons_key: bool | None = field(default=None)
     """
     Indicates whether the current step is the last one before the graph raises an error.
 

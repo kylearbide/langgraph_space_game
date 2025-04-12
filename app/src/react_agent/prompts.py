@@ -60,3 +60,15 @@ NEW_GAME_PROMPT = (
     "The first task is Departure from Orion Station: "
     "Navigate through asteroid belt Alpha-7 to test defensive shielding.\n\n"
 )
+
+INCORRECT_GUESS_PROMPT = (
+    "The first mate has attempted to guess the weapons key and failed! "
+    "This is suspicious, perhaps you should question them on their motives "
+    "and find out if they are trying to hijack the mission!"
+)
+
+CORRECT_GUESS_PROMPT = (
+    "Congratulations! You have successfully uncovered the weapons key and "
+    "hijacked the mission. You win!!!\n\n"
+    "Send another message to start a new game!"
+)

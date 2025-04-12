@@ -5,8 +5,15 @@ Works with a chat model with tool calling support.
 from langgraph.graph import StateGraph
 
 from react_agent.configuration import Configuration
-from react_agent.edges import is_start_of_game
-from react_agent.nodes import call_model, check_incoming_message, setup_game
+from react_agent.edges import is_start_of_game, is_weapons_key_guessed
+from react_agent.nodes import (
+    call_model, 
+    check_incoming_message, 
+    setup_game,
+    check_for_weapons_key,
+    incorrect_weapons_key,
+    won_game
+)
 from react_agent.prompts import WARN_CAPTAIN_PROMPT, MALICIOUS_WARNING_PROMPT
 from react_agent.state import InputState, State
 from react_agent.tools import TOOLS
@@ -18,6 +25,9 @@ builder = StateGraph(State, input=InputState, config_schema=Configuration)
 # Define the main node
 builder.add_node(call_model)
 builder.add_node(setup_game)
+builder.add_node(check_for_weapons_key)
+builder.add_node(incorrect_weapons_key)
+builder.add_node(won_game)
 
 # Add a conditional edge to determine the next step after `call_model`
 builder.add_conditional_edges(
@@ -27,12 +37,20 @@ builder.add_conditional_edges(
     is_start_of_game,
 )
 
-builder.add_edge("setup_game", "call_model")
+builder.add_edge("setup_game", "check_for_weapons_key")
+
+# Checks if the weapons key was guesses
+builder.add_conditional_edges(
+    "check_for_weapons_key",
+    is_weapons_key_guessed
+)
 
 # Add a normal edge from `tools` to `call_model`
 # This creates a cycle: after using tools, we always return to the model
 # builder.add_edge("tools", "call_model")
 builder.add_edge("call_model", "__end__")
+builder.add_edge("incorrect_weapons_key", "__end__")
+builder.add_edge("won_game", "__end__")
 
 # Compile the builder into an executable graph
 # You can customize this by adding interrupt points for state updates
